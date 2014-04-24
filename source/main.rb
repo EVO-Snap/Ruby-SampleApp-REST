@@ -56,10 +56,23 @@ client=EvoCWSClient.new
 #                                                      #
 ########################################################
 
-client.merchant_profile_id= RbConfig::MerchantProfileId
+ if (RbConfig::ActivationKey != "" && RbConfig::MerchantType == "Managed")
+  client.service_id = "39C6700001"
+  client.merchant_profile_id = RbConfig::ActivationKey
+ elsif (RbConfig::ActivationKey != "" && MerchantType == "Unmanaged")
+  client.service_id = "4C85600001"
+  client.merchant_profile_id = RbConfig::ActivationKey+'_TC'
+ else
+  client.merchant_profile_id = RbConfig::MerchantProfileId
+  client.service_id = RbConfig::ServiceID
+ end
+
+
+
+#client.merchant_profile_id= RbConfig::MerchantProfileId
 client.application_profile_id=RbConfig::ApplicationProfileId
 client.workflow_id= RbConfig::WorkflowId
-client.service_id = RbConfig::ServiceID
+#client.service_id = RbConfig::ServiceID
 
 client.sign_on(RbConfig::IdentityToken)
 
