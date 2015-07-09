@@ -49,7 +49,7 @@ class ApplicationManagement
         request = defaults; #Evo.recursive_merge(defaults, request);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-        evo_cws_client.send(RbConfig::BasePath + '/svcinfo/appprofile', request, Net::HTTP::Put, RbConfig::BaseURL);
+        evo_cws_client.send(RbConfig::BasePath + '/SIS.svc/appprofile', request, Net::HTTP::Put, RbConfig::BaseURL);
     end
 
     def self.get_application_data(evo_cws_client, app_id)
@@ -62,7 +62,7 @@ class ApplicationManagement
     evo_cws_client.last_call = self.class + self.method
     
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-        evo_cws_client.send('/svcinfo/appprofile/'+app_id, nil, Net::HTTP::Get);
+        evo_cws_client.send('/SIS.svc/appprofile/'+app_id, nil, Net::HTTP::Get);
     end
 
     def self.delete_application_data(evo_cws_client, app_id)
@@ -75,13 +75,13 @@ class ApplicationManagement
     app_id=URI::encode(app_id);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-        evo_cws_client.send(RbConfig::BasePath + '/svcinfo/appprofile/'+app_id, nil, Net::HTTP::Delete, RbConfig::BaseURL);
+        evo_cws_client.send(RbConfig::BasePath + '/SIS.svc/appprofile/'+app_id, nil, Net::HTTP::Delete, RbConfig::BaseURL);
     end
 
     def self.get_service_info(evo_cws_client)
         
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-        evo_cws_client.send(RbConfig::BasePath + '/svcinfo/serviceinformation', nil, Net::HTTP::Get, RbConfig::BaseURL);
+        evo_cws_client.send(RbConfig::BasePath + '/SIS.svc/serviceinformation', nil, Net::HTTP::Get, RbConfig::BaseURL);
     end
     
     

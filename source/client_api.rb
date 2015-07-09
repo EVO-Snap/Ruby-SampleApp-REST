@@ -112,15 +112,15 @@ module Evo
 
 		# The identity_token is a base64'd saml assertion that lasts 3 years.
 		# The session_token is a base64'd saml assertion that lasts 30 minutes.
-		# The SvcInfo/token endpoint only accepts the 3 year saml assertion, 
+		# The SIS.svc/token endpoint only accepts the 3 year saml assertion, 
 		#  and replies with a session token in quotes.
-		# All of the endpoints outside of SvcInfo expect a valid session_token.
+		# All of the endpoints outside of SIS.svc expect a valid session_token.
 	
 		def sign_on(identity_token)
 			@session_token= identity_token
 			
 			p "Requesting signOn..."+@session_token[0..32]
-			response= send(RbConfig::BasePath + "/svcinfo/token", nil, Net::HTTP::Get, RbConfig::BaseURL)
+			response= send(RbConfig::BasePath + "/SIS.svc/token", nil, Net::HTTP::Get, RbConfig::BaseURL)
 			
 			
 			

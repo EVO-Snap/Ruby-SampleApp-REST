@@ -94,7 +94,7 @@ module RbConfig
   
   # Endpoint Management
   BaseURL = "api.cipcert.goevo.com"
-  BasePath = "/rest/2.0.19"
+  BasePath = "/2.1.23/REST"
   
   # Merchant Profile Information
   ServiceID = "39C6700001";

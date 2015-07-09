@@ -62,7 +62,7 @@ class Tms
     request = Evo.recursive_merge(defaults, request);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS/batch', request, Net::HTTP::Post, RbConfig::BaseURL);
+    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS.svc/batch', request, Net::HTTP::Post, RbConfig::BaseURL);
   end
   
    def self.query_transactions_summary(evo_cws_client, request)
@@ -97,7 +97,7 @@ class Tms
     request = Evo.recursive_merge(defaults, request);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS/transactionsSummary', request, Net::HTTP::Post, RbConfig::BaseURL);
+    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS.svc/transactionsSummary', request, Net::HTTP::Post, RbConfig::BaseURL);
   end
   
   def self.query_transactions_detail(evo_cws_client, request)
@@ -132,7 +132,7 @@ class Tms
     request = Evo.recursive_merge(defaults, request);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS/transactionsDetail', request, Net::HTTP::Post, RbConfig::BaseURL);
+    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS.svc/transactionsDetail', request, Net::HTTP::Post, RbConfig::BaseURL);
   end
   def self.query_transactions_families(evo_cws_client, request)
     defaults= {
@@ -166,7 +166,7 @@ class Tms
     request = Evo.recursive_merge(defaults, request);
 
     evo_cws_client.last_call = self.name + "::" + __method__.to_s;
-    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS/transactionsFamily', request, Net::HTTP::Post, RbConfig::BaseURL);
+    evo_cws_client.send( RbConfig::BasePath + '/DataServices/TMS.svc/transactionsFamily', request, Net::HTTP::Post, RbConfig::BaseURL);
   end
   end
   end

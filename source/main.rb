@@ -30,6 +30,7 @@ require_relative 'Helpers/simple_response'
 require_relative 'Helpers/constants_shared'
 require_relative 'Helpers/recursive_merge'
 require 'json'
+require 'openssl'
 
 #Used to log request to file if stdout is insufficient.
 #def p (string)
