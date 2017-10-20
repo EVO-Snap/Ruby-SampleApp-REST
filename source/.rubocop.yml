@@ -1,0 +1,14 @@
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/LineLength:
+  IgnoreCopDirectives: true
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Style/ConstantName:
+  Enabled: false

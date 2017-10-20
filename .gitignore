@@ -1,3 +1,6 @@
+# Don't deploy the config file, deploy a config-orig
+config.rb
+
 #################
 ## Eclipse
 #################
