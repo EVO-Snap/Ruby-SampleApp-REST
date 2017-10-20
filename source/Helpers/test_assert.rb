@@ -25,18 +25,15 @@
 # Copyright:: 2017 EVO Payments International - All Rights Reserved
 # License:: Proprietary
 
-# The Evo module contains the entire sample application.  We're putting a
-# convenience function into the module for handling recursive merging of
-# default values with customized value changes.
-module Evo
-  def self.recursive_merge(default, request)
-    request.keys.each do |k|
-      default[k] = if default[k].is_a?(Hash) && request[k].is_a?(Hash)
-                     recursive_merge(default[k], request[k])
-                   else
-                     request[k]
-                   end
+# This convenience function asserts that the result of a call to the Snap*
+# API completed successfully and prints out debug information about it.
+module Workflows
+  def self.test_assert(test, result)
+    if !test
+      p 'FAILED: ' + result.last_call
+      exit
+    else
+      p 'SUCCESS: ' + result.last_call
     end
-    default
   end
 end

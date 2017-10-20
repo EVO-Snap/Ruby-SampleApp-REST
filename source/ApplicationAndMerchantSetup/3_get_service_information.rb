@@ -25,18 +25,23 @@
 # Copyright:: 2017 EVO Payments International - All Rights Reserved
 # License:: Proprietary
 
-# The Evo module contains the entire sample application.  We're putting a
-# convenience function into the module for handling recursive merging of
-# default values with customized value changes.
+require 'time'
+require 'open-uri'
+
 module Evo
-  def self.recursive_merge(default, request)
-    request.keys.each do |k|
-      default[k] = if default[k].is_a?(Hash) && request[k].is_a?(Hash)
-                     recursive_merge(default[k], request[k])
-                   else
-                     request[k]
-                   end
+  # The ServiceInformation class provides a single method that fetches
+  # the configured service information for the ID logged in during the previous
+  # step.  This information is useful for knowing which services are configured
+  # for use.
+  class ServiceInformation
+    def self.get_service_info(evo_cws_client)
+      evo_cws_client.last_call = name + '::' + __method__.to_s
+      evo_cws_client.send(
+        RbConfig::BasePath + '/SIS.svc/serviceinformation',
+        nil,
+        Net::HTTP::Get,
+        RbConfig::BaseURL
+      )
     end
-    default
   end
 end
